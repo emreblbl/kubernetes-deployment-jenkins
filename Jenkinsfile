@@ -4,13 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building...'
-                // Add your build steps here
+            // Add your build steps here
             }
         }
         stage('Test') {
             steps {
                 echo 'Testing...'
-                // Add your test steps here
+            // Add your test steps here
             }
         }
         stage('Deploy') {
@@ -18,7 +18,6 @@ pipeline {
                 echo 'Deploying...'
                 sh 'kubectl apply -f kubernetes/sample-app-deployment.yaml'
                 sh 'kubectl apply -f kubernetes/sample-app-service.yaml'
-                }
             }
         }
     }
