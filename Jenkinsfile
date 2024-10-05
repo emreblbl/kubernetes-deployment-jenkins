@@ -16,7 +16,10 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying...'
-                // Add your deploy steps here
+                withKubeConfig([credentialsId: 'dell-cluster-id']) {
+                    sh 'kubectl apply -f kubernetes/sample-app-deployment.yaml'
+                    sh 'kubectl apply -f kubernetes/sample-app-service.yaml'
+                }
             }
         }
     }
